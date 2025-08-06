@@ -6,7 +6,7 @@ import numpy as np
 app =Flask(__name__)
 data  = pd.read_csv('Cleaned_data.csv')
 pipe = pickle.load(open('RidgeModel.pkl','rb'))
-buyable_model = pickle.load(open('logisticRegressionModel.pkl', 'rb'))
+buyable_model = pickle.load(open('rf_model.pkl', 'rb'))
 
 @app.route('/')
 def index():
@@ -39,16 +39,22 @@ def predict():
                             columns=['location', 'total_sqft', 'bath', 'balcony', 'bhk'])
 
     # Predict price
-    predicted_price = pipe.predict(input_df)[0] * 1000
+    predicted_price_lakhs = pipe.predict(input_df)[0]  # Keep in lakhs for buyability model
+    predicted_price_rupees = predicted_price_lakhs * 1e5  # Convert to rupees for display
 
-    # Predict buyability — add predicted price
+    # Predict buyability — add predicted price in lakhs
     input_df_buy = input_df.copy()
-    input_df_buy['price'] = predicted_price
+    input_df_buy['price'] = predicted_price_lakhs  # Use lakhs, not rupees
+    print("Buyable Input:\n", input_df_buy)
+    print("Buyable Model Prediction:", buyable_model.predict(input_df_buy))
 
     buyable = buyable_model.predict(input_df_buy)[0]
     buyable_text = "Yes" if buyable == 1 else "No"
 
-    return f"{np.round(predicted_price, 2)}|{buyable_text}"
+    # Format price with commas
+    formatted_price = f"{predicted_price_rupees:,.2f}"
+
+    return f"{formatted_price}|{buyable_text}"
 
 
 
