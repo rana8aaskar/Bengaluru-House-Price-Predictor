@@ -1,0 +1,16 @@
+# Ignore Python cache and environment
+__pycache__/
+*.pyc
+.venv/
+
+# Ignore IDE and workspace files
+.idea/
+.vscode/
+
+# Ignore other projects and folders
+PythonProject/
+sms-spam-predictor/
+
+# Ignore CSV and model files if not tracked
+*.csv
+*.pkl
