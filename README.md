@@ -1,42 +1,37 @@
-**Bengaluru House Price Predictor**
-This project predicts house prices in Bengaluru based on various features using machine learning models. The input features include square footage, balcony count, bathrooms, area location, and BHK (bedroom-hall-kitchen count). The model returns an estimated house price based on these inputs.
+# Bengaluru House Price Predictor
 
-**Features
-Input features:**
+A web application to predict house prices in Bengaluru and whether a house is buyable, using machine learning.
 
--Square Footage (sqft)
+## Features
+- Predict house prices based on location, BHK, bath, sqft, and balcony.
+- Predict whether a house should be bought or not (buyable model).
+- Uses trained models (`RidgeModel.pkl` for price, `rf_model.pkl` for buyable decision) and cleaned data (`Cleaned_data.csv`).
+- Simple web interface built with Flask.
 
--Number of Balconies
+## Input Features
+- Square Footage (sqft)
+- Number of Balconies
+- Number of Bathrooms
+- Area Location
+- BHK (Bedrooms, Hall, Kitchen)
 
--Number of Bathrooms
+## Dataset
+- Original dataset of ~130,000 entries
+- After feature engineering and data cleaning, reduced to ~75,000 high-quality data points
 
--Area Location
+## Machine Learning Models Used
+- Ridge Regression (for price prediction)
+- Random Forest (for buyable prediction)
 
--BHK (Bedrooms, Hall, Kitchen)
+## Getting Started
+**Prerequisites**
+Make sure you have the following Python libraries installed:
+- Flask
+- Pandas
+- Scikit-learn
 
-**Dataset:**
-
--Original dataset of ~130,000 entries
-
--After feature engineering and data cleaning, reduced to ~75,000 high-quality data points
-
-Machine Learning Models Used:
-
--Linear Regression
-
--Ridge Regression
-
--Lasso Regression
-
-**Getting Started
-Prerequisites
-Make sure you have the following Python libraries installed:**
-
--Flask
-
--Pandas
-
--Scikit-learn
+## License
+This project is licensed under the MIT License.
 
 -Numpy
 

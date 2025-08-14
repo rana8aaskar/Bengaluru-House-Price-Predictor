@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg-info/
+*.egg
+*.env
+.env
+venv/
+ENV/
+env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Data
+*.sqlite3
+*.db
+*.csv
+*.tsv
+*.xls
+*.xlsx
+*.h5
+*.parquet
+*.pkl
+*.joblib
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Others
+*.bak
+*.swp
+*.swo
+
+# Deployment
+*.tar.gz
+*.zip
+
+# Model files
+*.h5
+*.pt
+*.onnx
+*.pb
+*.tflite
+*.ckpt
+*.model
+*.weights
+
+# Docker
+*.pid
+
+# Node
+node_modules/
